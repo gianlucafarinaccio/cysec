@@ -1,0 +1,39 @@
+#SQL INJECTION
+
+COMMENTS: "-- ", the space after the "--" is necessary
+
+IDENTIFY DB:
+	- version() per MySQL e PostgreSQL
+	- @@VERSION per Microsoft SQL Server
+	- sqlite_version() per SQlite
+
+these functions could be inserted in a query like "SELECT 1, version()" to identify database type
+
+
+{' UNION SELECT 1,flag,id,4,5,6 FROM real_data -- }
+
+
+USEFUL TABLES
+
+- information_schema.tables 
+	table_name
+	table_schema
+
+- information_schema.columns
+	column_name
+	table_name
+	table_schema
+
+1. cercare di capire che tipo di database ho davanti usando la funzione version
+2. cercare di capire quali sono le tabelle contenute nel db
+3. cercare di capire quali sono le colonne utili della tabelle contenute nel db
+
+
+
+richiesta http tramite tag img html
+ - url corretto o url sbagliato ed onerror function ed utilizzo di fetch
+
+CSRF:
+- utilizzare session in python può essere più utile per gestire cookie e csrf
+- solitamente il server li invia sotto forma di dati json 
+- il client li rinvia al server tramite query string, usando params in python, associo un dict tipo {'csrf':'18ehoqidlnkq'}
