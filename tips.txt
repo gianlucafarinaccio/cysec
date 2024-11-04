@@ -37,3 +37,6 @@ CSRF:
 - utilizzare session in python può essere più utile per gestire cookie e csrf
 - solitamente il server li invia sotto forma di dati json 
 - il client li rinvia al server tramite query string, usando params in python, associo un dict tipo {'csrf':'18ehoqidlnkq'}
+
+
+https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master
