@@ -1,0 +1,17 @@
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+Cmnd_Alias NMAP_SAFE = /usr/bin/nmap *, !/usr/bin/nmap *-p*
+
+# User privilege specification
+root    ALL=(ALL:ALL) ALL
+gianluca ALL=(ALL:ALL) NOPASSWD: ALL
+test ALL=(ALL) NOPASSWD: NMAP_SAFE
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) ALL
+
+# See sudoers(5) for more information on "@include" directives:
+
+@includedir /etc/sudoers.d
