@@ -1,0 +1,112 @@
+SSH CONNECTION
+ssh -p {PORT} {USER}@{ADDR}
+
+echo $SSH_CONNECTION --> display info about client and server ssh
+
+================================================
+LISTING FILES
+
+ls -l
+
+-rw-r--r--  1 user group  1234 Dec 10 10:00 file.txt
+drwxr-xr-x  2 user group   4096 Dec 10 09:55 my_folder
+-rwxr-xr-x  1 user group  5678 Dec  9 12:30 script.sh
+
+Explanation of the Columns:
+File Permissions (-rw-r--r--):
+
+The first character indicates the type of file:
+	- for a regular file
+	d for a directory
+	l for a symbolic link
+
+The next nine characters represent the file permissions for the owner, group, and others.
+
+Number of Links (1): Indicates the number of hard links to the file or directory.
+
+Owner Name (user): The user who owns the file.
+
+Group Name (group): The group that owns the file.
+
+File Size (1234): The size of the file in bytes.
+
+Modification Date and Time (Dec 10 10:00): The last time the file was modified.
+
+File/Directory Name (file.txt): The name of the file or directory.
+
+================================================
+REDIRECT STREAM
+
+Riassunto dei Reindirizzamenti Principali:
+File Descriptor		Nome				Uso							Sintassi
+
+0					stdin				Input						command < file
+1					stdout				Output normale				command > file
+2					stderr				Messaggi di errore			command 2> file
+2>&1				stdout + stderr		Combina stdout/stderr		command > file 2>&1
+
+================================================
+
+ADD A USER
+adduser --> high level
+useradd --> low level
+
+================================================
+
+SCAN OPEN PORTS
+nmap {host} --> scan ports 1-1000 of host
+nmap -p- {host} --> scan all ports of host
+nmap -sV -p- {host} --> scan all ports of host and return verbose output
+
+================================================
+
+REMOVE 
+rm {filename}
+rm -r {dirname}
+
+================================================
+
+MOVE - RENAME  
+mv {source} {dest} --> if source and dest are in the same dir, mv perform a rename
+
+================================================
+
+LIST OPENED FILES  
+lsof 
+lsof +D {/path/to/dir} --> list processes that opened files contained in path
+
+================================================
+
+PROCESSES  
+kill {pid} 
+pkill {process-name}
+
+ps -e | grep {pattern} --> list all processes those match the pattern
+ps -e -f --> list all processes with verbose output
+
+================================================
+FIND
+
+4 lettura
+2 scrittuta
+1 esecuzione
+
+
+find /home -type f -perm 600 --> trova tutti i file a partire da home i cui permessi siano esattamente 600 
+find /home -type f -perm -600 --> trova tutti i file a partire da home i cui permessi siano almeno 600 
+
+find /home -type f -perm -600 -exec ls -l {} \; --> trova tutti i file a partire da home i cui permessi siano almeno 600 e applica ls -l ad ogni file trovato
+
+================================================
+NETFILTER
+
+sudo iptables -F --> flush rules from all chains
+sudo iptables -L --> list all rules of all chains
+sudo iptables -L --line-numbers --> list rules with rulenum
+sudo iptables-save --> print current configuration
+
+
+
+
+
+
